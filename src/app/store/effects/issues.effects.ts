@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Action } from '@ngrx/store';
 import * as issuesActions from '../actions/issues.actions';
-import { switchMap, map } from 'rxjs/operators'
+import { switchMap, map, withLatestFrom } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '../reducers';
 
 
 
@@ -15,14 +17,16 @@ export class IssuesEffects {
 
   constructor(
     private actions$: Actions,
-    private http: HttpClient
+    private http: HttpClient,
+    private store: Store<fromRoot.State>
     ) {}
 
     @Effect()
     loadIssues$: Observable<Action> = this.actions$.pipe(
       ofType(issuesActions.IssuesActionTypes.SetApiUrl),
-      switchMap(() => {
-        return this.http.get<Array<object>>('https://api.github.com/repos/plotly/angular-plotly.js/issues')
+      withLatestFrom(this.store.select(fromRoot.getUrl)),
+      switchMap(([action,apiUrl]) => {
+        return this.http.get<Array<object>>(apiUrl)
           .pipe(
             map((issuesArray) => {
               return new issuesActions.LoadIssues(issuesArray);

@@ -38,3 +38,4 @@ export function consoleLogs(reducer: ActionReducer<State>): ActionReducer<State>
 // selector
 export const selectIssuesState = createFeatureSelector<fromIssues.State>('issues');
 export const getIssues = createSelector(selectIssuesState, fromIssues.getIssues);
+export const getUrl = createSelector(selectIssuesState, fromIssues.getUrl);

@@ -44,3 +44,4 @@ function handleLoadIssues(state: State, action: issuesActions.LoadIssues): State
 
 // selector
 export const getIssues = (state: State) => state.Issues;
+export const getUrl = (state: State) => state.ApiUrl;
