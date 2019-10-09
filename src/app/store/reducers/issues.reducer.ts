@@ -41,3 +41,6 @@ function handleLoadIssues(state: State, action: issuesActions.LoadIssues): State
     Issues: action.payload
   };
 }
+
+// selector
+export const getIssues = (state: State) => state.Issues;

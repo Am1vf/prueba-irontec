@@ -34,3 +34,7 @@ export function consoleLogs(reducer: ActionReducer<State>): ActionReducer<State>
     return result;
   };
 }
+
+// selector
+export const selectIssuesState = createFeatureSelector<fromIssues.State>('issues');
+export const getIssues = createSelector(selectIssuesState, fromIssues.getIssues);

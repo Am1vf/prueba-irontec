@@ -27,7 +27,7 @@ export class IssuesEffects {
             map((issuesArray) => {
               return new issuesActions.LoadIssues(issuesArray);
             })
-          )
+          );
       })
     );
 }
