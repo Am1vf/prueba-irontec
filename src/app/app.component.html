@@ -4,7 +4,7 @@
       <input matInput placeholder="URL api del repositorio en github. Ejemplo: https://github.com/plotly/angular-plotly.js" [(ngModel)]="apiUrl">
   </mat-form-field>
 
-  <button mat-raised-button (click)="load()" >Cargar información de Issues</button>
+  <button mat-raised-button color="primary" (click)="load()" >Cargar información de Issues</button>
 
   <table mat-table [dataSource]="dataSource">
 
