@@ -1,7 +1,7 @@
 <mat-card class="canvas">
 
   <mat-form-field>
-      <input matInput placeholder="URL api del repositorio en github. Ejemplo: https://api.github.com/repos/plotly/angular-plotly.js/issues" [(ngModel)]="apiUrl">
+      <input matInput placeholder="URL api del repositorio en github. Ejemplo: https://github.com/plotly/angular-plotly.js" [(ngModel)]="apiUrl">
   </mat-form-field>
 
   <button mat-raised-button (click)="load()" >Cargar información de Issues</button>
