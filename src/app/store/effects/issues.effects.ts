@@ -23,13 +23,13 @@ export class IssuesEffects {
 
     @Effect()
     loadIssues$: Observable<Action> = this.actions$.pipe(
-      ofType(issuesActions.IssuesActionTypes.SetApiUrl),
-      withLatestFrom(this.store.select(fromRoot.getUrl)),
+      ofType(issuesActions.IssuesActionTypes.SetApiUrl), // cada vez que se cambie la url
+      withLatestFrom(this.store.select(fromRoot.getUrl)), // obtener url del estado
       switchMap(([action,apiUrl]) => {
-        return this.http.get<Array<object>>(apiUrl)
+        return this.http.get<Array<object>>(apiUrl) // llamar la api
           .pipe(
             map((issuesArray) => {
-              return new issuesActions.LoadIssues(issuesArray);
+              return new issuesActions.LoadIssues(issuesArray); // mandar la respuesta a la accion
             })
           );
       })

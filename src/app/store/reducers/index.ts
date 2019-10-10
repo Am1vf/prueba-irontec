@@ -22,6 +22,7 @@ export const reducers: ActionReducerMap<State> = {
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [consoleLogs] : [];
 
+// mostrar los cambios de estado por consola en el entorno de desarrollo
 export function consoleLogs(reducer: ActionReducer<State>): ActionReducer<State> {
   return (state: State, action: any): any => {
     const result = reducer(state, action);
@@ -35,7 +36,7 @@ export function consoleLogs(reducer: ActionReducer<State>): ActionReducer<State>
   };
 }
 
-// selector
+// selectores
 export const selectIssuesState = createFeatureSelector<fromIssues.State>('issues');
 export const getIssues = createSelector(selectIssuesState, fromIssues.getIssues);
 export const getUrl = createSelector(selectIssuesState, fromIssues.getUrl);

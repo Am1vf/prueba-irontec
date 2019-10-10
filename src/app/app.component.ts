@@ -31,8 +31,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    // cuando cambien los issues actualizar dataSource
     this.issues$ = this.store.select(fromRoot.getIssues);
-    this.issues$.subscribe((issuesArray) => {
+    this.issues$.subscribe((issuesArray) => { // tiene que haber otra forma...
       this.dataSource.data = issuesArray;
     });
     this.dataSource.paginator = this.paginator; // asignar el paginador a la tabla

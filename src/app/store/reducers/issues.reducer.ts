@@ -4,6 +4,7 @@ import * as issuesActions from '../actions/issues.actions';
 
 export const issuesFeatureKey = 'issues';
 
+// definicion e inicializacion de estado
 export interface State {
   ApiUrl: string;
   Issues: Array<object>;
@@ -14,6 +15,7 @@ export const initialState: State = {
   Issues: []
 };
 
+// actualizaciones de estado
 export function reducer(state = initialState, action): State {
   switch (action.type) {
 
@@ -42,6 +44,6 @@ function handleLoadIssues(state: State, action: issuesActions.LoadIssues): State
   };
 }
 
-// selector
+// selectores acceso al estado
 export const getIssues = (state: State) => state.Issues;
 export const getUrl = (state: State) => state.ApiUrl;
