@@ -16,10 +16,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  // varuables de estado
   title = 'prueba-irontec';
   apiUrl = '';
   issues$: Observable<any>;
 
+  showtable = false;
+
+  // configuracion de tabla
   displayedColumns: string[] = ['state', 'title','creationDate', 'url'];
   dataSource = new MatTableDataSource<Observable<any>>();
 
@@ -34,7 +39,10 @@ export class AppComponent implements OnInit {
     // cuando cambien los issues actualizar dataSource
     this.issues$ = this.store.select(fromRoot.getIssues);
     this.issues$.subscribe((issuesArray) => { // tiene que haber otra forma...
-      this.dataSource.data = issuesArray;
+      if (issuesArray.length >= 1) {
+        this.showtable = true;
+        this.dataSource.data = issuesArray;
+      } else { this.showtable = false };
     });
     this.dataSource.paginator = this.paginator; // asignar el paginador a la tabla
   }

@@ -6,7 +6,7 @@
 
   <button mat-raised-button color="primary" (click)="load()" >Cargar información de Issues</button>
 
-  <table mat-table [dataSource]="dataSource">
+  <table [style.visibility]="showtable ? 'visible' : 'hidden'" mat-table [dataSource]="dataSource">
 
     <ng-container matColumnDef="state">
       <th mat-header-cell *matHeaderCellDef> Estado </th>
@@ -32,5 +32,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-paginator [style.visibility]="showtable ? 'visible' : 'hidden'" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </mat-card>
