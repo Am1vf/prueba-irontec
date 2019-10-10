@@ -1,7 +1,8 @@
-.canvas {
+.mat-card {
     width: 80%;
     margin: auto;
     margin-top: 30px;
+    overflow: hidden;
 }
 
 .mat-form-field, .mat-button-base {
@@ -9,5 +10,9 @@
 }
 
 .mat-cell {
-    padding: 4px;
+    padding: 6px
+}
+
+.mat-column-title {
+    font-weight: bold
 }

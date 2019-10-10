@@ -1,35 +1,31 @@
 <mat-card class="canvas">
 
   <mat-form-field>
-      <input matInput placeholder="URL del repositorio en github" [(ngModel)]="apiUrl">
+      <input matInput placeholder="URL api del repositorio en github. Ejemplo: https://api.github.com/repos/plotly/angular-plotly.js/issues" [(ngModel)]="apiUrl">
   </mat-form-field>
 
-  <button mat-raised-button (click)="load()" >Load</button>
+  <button mat-raised-button (click)="load()" >Cargar información de Issues</button>
 
   <table mat-table [dataSource]="dataSource">
 
-    <!-- Position Column -->
     <ng-container matColumnDef="state">
       <th mat-header-cell *matHeaderCellDef> State </th>
       <td mat-cell *matCellDef="let element"> {{element.state}} </td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef> Title </th>
       <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="body">
       <th mat-header-cell *matHeaderCellDef> Body </th>
       <td mat-cell *matCellDef="let element"> {{element.body}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="url">
-      <th mat-header-cell *matHeaderCellDef> Url </th>
-      <td mat-cell *matCellDef="let element"> <a href="{{element.url}}"  target="_blank">{{element.url}}</a> </td>
+      <th mat-header-cell *matHeaderCellDef> Link </th>
+      <td mat-cell *matCellDef="let element"> <a href="{{element.html_url}}"  target="_blank">=></a> </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

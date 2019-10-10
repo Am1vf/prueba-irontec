@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "prueba-irontec"
+  "defaultProject": "prueba-irontec",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
