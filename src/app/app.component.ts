@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   apiUrl = '';
   issues$: Observable<any>;
 
-  displayedColumns: string[] = ['state', 'title', 'url'];
+  displayedColumns: string[] = ['state', 'title','creationDate', 'url'];
   dataSource = new MatTableDataSource<Observable<any>>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
