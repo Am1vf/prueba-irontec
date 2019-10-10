@@ -31,9 +31,10 @@ export function reducer(state = initialState, action): State {
 }
 
 function handleSetApiUrl(state: State, action: issuesActions.SetApiUrl): State {
+  const apiUrl = action.payload.replace('github.com/', 'api.github.com/repos/').concat('/issues'); // convertir url a api
   return {
     ...state,
-    ApiUrl: action.payload
+    ApiUrl: apiUrl
   };
 }
 
